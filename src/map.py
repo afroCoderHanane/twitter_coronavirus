@@ -37,6 +37,8 @@ hashtags = [
 
 # initialize counters
 counter_lang = defaultdict(lambda: Counter())
+#variable to track the usage of hashtags on a country level
+counter_country = defaultdict(lambda: Counter())
 
 # open the zipfile
 with zipfile.ZipFile(args.input_path) as archive:
@@ -55,14 +57,23 @@ with zipfile.ZipFile(args.input_path) as archive:
                 tweet = json.loads(line)
 
                 # convert text to lower case
-                text = tweet['text'].lower()
-
+                try:
+                    text = tweet['text'].lower()
+                except:
+                    continue;
                 # search hashtags
                 for hashtag in hashtags:
                     lang = tweet['lang']
+                    try:
+                        country = tweet['place']['country_code']                        
+                    except:
+                        country = None
+ 
                     if hashtag in text:
                         counter_lang[hashtag][lang] += 1
+                        counter_country[hashtag][country] += 1
                     counter_lang['_all'][lang] += 1
+                    counter_country['_all'][country] += 1
 
 # open the outputfile
 try:
@@ -72,7 +83,11 @@ except FileExistsError:
 output_path_base = os.path.join(args.output_folder,os.path.basename(args.input_path))
 
 output_path_lang = output_path_base+'.lang'
-print('saving',output_path_lang)
-with open(output_path_lang,'w') as f:
-    f.write(json.dumps(counter_lang))
+output_path_country = output_path_base+'.country'
 
+#print('saving',output_path_lang)
+#with open(output_path_lang,'w') as f:
+   # f.write(json.dumps(counter_lang))
+print('saving', output_path_country)
+with open(output_path_country, 'w') as q:
+    q.write(json.dumps(counter_country))
