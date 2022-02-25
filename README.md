@@ -7,7 +7,7 @@ the results are stored in the `viz` folder as `#coronavirus` and `#coronavirus_c
 > The `#coronavirus` contains the number of times the `#coronavirus` was tweeted which is preceded by what language was used to tweet for the first most used language.
 
 > The `#coronavirus_country` contains the number of times the `#coronavirus` was tweeted from a specific country and preceded by what country was the tweet from for the first top 10 country.
->
+
 # Tutorial
 
 You will scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
