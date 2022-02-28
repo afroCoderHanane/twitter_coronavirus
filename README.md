@@ -1,5 +1,15 @@
 # Coronavirus twitter analysis
 
+# Result
+This repository is an analysis of the twitter dataset that provides how many times the `#coronavirus` was used in 2020 and from where the tweet was from. 
+the results are stored in the `viz` folder as `#coronavirus` and `#coronavirus_country` using `output redirection` as specified in the tutorial below.
+
+> The `#coronavirus` contains the number of times the `#coronavirus` was tweeted which is preceded by what language was used to tweet for the first most used language.
+
+> The `#coronavirus_country` contains the number of times the `#coronavirus` was tweeted from a specific country and preceded by what country was the tweet from for the first top 10 country.
+
+# Tutorial
+
 You will scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
 
 **Due date:** 
@@ -170,13 +180,4 @@ Complete the following tasks:
     This explanation should be suitable for a future employer to look at while they are interviewing you to get a rough idea of what you accomplished.
     (And you should tell them about this in your interviews!)
 
-## Submission
 
-Upload a link to you github repository on sakai.
-I will look at your code and visualization to determine your grade.
-
-Notice that we are not using CI to grade this assignment.
-That's because you can get slightly different numbers depending on some of the design choices you make in your code.
-For example, should the term `corona` count tweets that contain `coronavirus` as well as tweets that contain just `corona`?
-These are relatively insignificant decisions.
-I'm more concerned with your ability to write a shell script and use `nohup`, `&`, and other process control tools effectively.
